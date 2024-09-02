@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Styling with JavaScript</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 200px;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        .hover-effect {
+            width: 150px;
+            height: 150px;
+            background-color: lightcoral;
+            margin: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.1);
+            
+        }
+
+        .dynamic-text {
+            font-size: 20px;
+            color: darkslategrey;
+            
+        }
+
+    </style>
+</head>
+<body>
+
+    <! -- Task 1: Html Structure -->
+    <div id="box" onclick="changeColor()">Click me to change color</div>
+    <div class="hover-effect">Hover over me</div>
+    <button onclick="changeText()">Change Text</button>
+    <div id="dynamicText" class="dynamic-text">Orginal Text</div>
+    <div class="hover-effect" onmouseover="changeBackground(this)" onmouseout="resetBackground(this)">Hover to change background</div>
+
+    <! -- Task 1&2:JaveScript for Dynamic Styling -->
+    <script>
+        // Function to change the color of the box when clicked
+        function changeColor() {
+            const box = document.getElementById('box');
+            box.style.backgroudColor === 'lightblue' ? 'lightgreen' : 'lightblue';
+
+        }
+
+        // Funtion to change the text content of the dynamic text div
+        function changeText() {
+            const dynamicText = document.getElementById('dynamicText');
+            dynamicText.textContent = dynamicText.textContent === 'Orginal Text' ? 'Text Changed!' : 'Orginal Text';
+            
+        }
+
+        // Function to change the background color of an element on hover
+        function changeBackground(element) {
+            element.style.backgroundColor = 'lightgoldenrodyellow';
+
+        }
+
+        // Function to reset the background color when hover ends
+
+        function resetBackground(element) {
+            element.style.backgroundColor = 'lightcoral';     
+        }
+
+    </script>
+
+
+</body>
+</html>
